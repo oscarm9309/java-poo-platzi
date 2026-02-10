@@ -12,6 +12,7 @@ public class Pelicula {
     public double calificacion;
     public boolean disponible;
 
+
     public Pelicula(String titulo, int duracion, String genero) {
         this.titulo = titulo;
         this.duracion = duracion;
