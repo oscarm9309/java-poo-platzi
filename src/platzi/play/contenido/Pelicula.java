@@ -16,6 +16,12 @@ public class Pelicula {
         this.titulo = titulo;
         this.duracion = duracion;
         this.genero = genero;
+        this.fechaEstreno = LocalDate.of(2024, 1, 1);
+    }
+
+    public Pelicula(String titulo, int duracion, String genero, double calificacion) {
+        this(titulo, duracion, genero);
+        this.calificar(calificacion);
     }
 
     public void reproducir(){
@@ -23,9 +29,10 @@ public class Pelicula {
     }
 
     public String obtenerFichaTecnica(){
-        return titulo + "(" + fechaEstreno.getYear() + ")\n" +
+        String anioEstreno = fechaEstreno != null ? String.valueOf(fechaEstreno.getYear()) : "s/f";
+        return titulo + "(" + anioEstreno + ")\n" +
                 "Genero: " + genero + "\n" +
-                "Calificación: " +  calificacion + "/5";
+                "Calificacion: " +  calificacion + "/5";
     }
 
     public void calificar(double calificacion){
@@ -37,4 +44,9 @@ public class Pelicula {
     public boolean esPopular(){
         return calificacion >= 4;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
 }
+
